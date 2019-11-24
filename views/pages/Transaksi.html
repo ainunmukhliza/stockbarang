@@ -1,110 +1,137 @@
 <div class="row">
     <div class="col-md-12">
         <div class="content-panel">
-            <h4><i class="fa fa-angle-right"></i> TRANSAKSI</h4>
-            <hr>
-            <a style="margin-left: 10px;" id="modal-195230" href="" role="button" class="btn btn-primary"
-            data-target="#modal-container-195230" data-toggle="modal" ng-click="GetSimpan()">TAMBAH</a>
-         
-            <div class="card-body table-full-width table-responsive">
-                <table class="table table-hover table-striped">
-                    <table class="table">
-                        <thead>
+            <h4><div class="font-weight-bold text-white" align="center"></i> Daftar Transaksi</h4>
+            <hr>            
+            <div class="panel-body">
+                    <td><button class="btn btn-info" id="modal-195230" data-target="#modal-container-195230"
+                        data-toggle="modal" ng-click="GetSimpan()">Tambah</button></td>
+                               
+
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover">
+                        <tdead>
                             <tr>
-                                <td>NO NOTA</td>
-                                <td>TANGGAL</td>
-                                <td>HARGA BARANG</td>
-                                <td>BARANG MASUK</td>
-                                <td>KODE TRANSAKSI</td>
-                                <td>ID BARANG</td>
-                                <td>ID SUPLIER</td>
-                                <td colspan="2" style="width: 10%;">Action</td>
+                                <td class="font-weight-bold text-white" align="center"><b>No</b></td>
+                                <td class="font-weight-bold text-white" align="center"><b>No Nota</td>
+                                <td class="font-weight-bold text-white" align="center"><b>Tanggal</td>
+                                <td class="font-weight-bold text-white" align="center"><b>Harga Barang</b></td>
+                                <td class="font-weight-bold text-white" align="center"><b>Barang Masuk</b></td>
+                                <td class="font-weight-bold text-white" align="center"><b>Kode Transaksi</b></td>
+                                <td class="font-weight-bold text-white" align="center"><b>Id Barang</b></td>
+                                <td class="font-weight-bold text-white" align="center"><b>Id Suplier</b></td>
+                                <td class="font-weight-bold text-white" align="center" colspan="3"><b>Action</b></td>
                             </tr>
-                        </thead>
+                        </tdead>
                         <tbody>
                             <tr ng-repeat="item in DatasTransaksi">
-                                <td>{{item.NoNota}}</td>
-                                <td>{{item.Tanggal}}</td>
-                                <td>{{item.Harga_Barang}}</td>
-                                <td>{{item.Barang_Masuk}}</td>
-                                <td>{{item.Kode_Transaksi}}</td>
-                                <td>{{item.IdBarang}}</td>
-                                <td>{{item.IdSuplier}}</td>
-                                <td><button class="btn btn-info">Ubah</button></td>
-                                <td><button class="btn btn-danger">Hapus</button></td>
+                                <td class="font-weight-bold text-white" align="center">{{$index+1}}</td>
+                                <td class="font-weight-bold text-white" align="center">{{item.NoNota}}</td>
+                                <td class="font-weight-bold text-white" align="center">{{item.Tanggal}}</td>
+                                <td class="font-weight-bold text-white" align="center">{{item.Harga_Barang}}</td>
+                                <td class="font-weight-bold text-white" align="center">{{item.Barang_Masuk}}</td>
+                                <td class="font-weight-bold text-white" align="center">{{item.Kode_Transaksi}}</td>
+                                <td class="font-weight-bold text-white" align="center">{{item.IdBarang}}</td>
+                                <td class="font-weight-bold text-white" align="center">{{item.IdSuplier}}</td>
+                                <td align="center"><button class="btn btn-success" id="modal-195230" data-target="#modal-container-195230" data-toggle="modal" ng-click="GetData(item)">Ubah</button></td>
+                                <td align="center"><button class="btn btn-danger"  ng-click ="Hapus(item)">Hapus</button></td>
                             </tr>
                         </tbody>
                     </table>
-            </div>
-        </div>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-
-
-                    <div class="modal fade" id="modal-container-195230" role="dialog" aria-labelledby="myModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="myModalLabel">
-                                        Masukan Daftar Transaksi
-                                    </h5>
-                                    <button type="button" class="close" data-dismiss="modal">
-                                        <span aria-hidden="true">×</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <form role="form">
-                                        
-                                        <div class="form-group">
-
-                                            <label for="exampleInputTanggal">
-                                                TANGGAL
-                                            </label>
-                                            <input type="text" class="form-control" id="exampleInputTanggal"
-                                                ng-model="input.Tanggal" />
-                                        </div>
-                                        <div class="form-group">
-
-                                            <label for="exampleInputHarga_Barang">
-                                                HARGA BARANG
-                                            </label>
-                                            <input type="text" class="form-control" id="exampleInputHarga_Barang"
-                                                ng-model="input.Harga_Barang" />
-                                        </div>
-                                        <div class="form-group">
-
-                                            <label for="exampleInputBarang_Masuk">
-                                                BARANG MASUK
-                                            </label>
-                                            <input type="text" class="form-control" id="exampleInputBarang_Masuk"
-                                                ng-model="input.Barang_Masuk"s/>
-                                        </div>
-                                        <div class="form-group">
-
-                                            <label for="exampleInputKode_Transaksi">
-                                                KODE TRANSAKSI
-                                            </label>
-                                            <input type="text" class="form-control" id="exampleInputKode_Transaksi"
-                                                ng-model="input.Kode_Transaksi"/>
-                                        </div>
-                                       
-                                </div>
-                                <div class="modal-footer">
-
-                                    <button type="button" class="btn btn-primary" ng-click="Simpan()">
-                                        Simpan </button>
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                        Keluar
-                                    </button>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
                 </div>
             </div>
         </div>
+        <!-- End  Kitchen Sink -->
+    </div>
+</div>
+<div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+    
+    
+                <div class="modal fade" id="modal-container-195230" role="dialog" aria-labelledby="myModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="myModalLabel">
+                                    Data Transaksi
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form role="form">
+                                    <div class="form-group">
+    
+                                        <label for="exampleInputNo Nota1">
+                                            No Nota
+                                        </label>
+                                        <input type="text" class="form-control" id="exampleInputNo Nota1" ng-model="input.NoNota"/>
+                                    </div>
+                                    <div class="form-group">
+    
+                                        <label for="exampleInputTanggal1">
+                                            Tanggal
+                                        </label>
+                                        <input type="text" class="form-control" id="exampleInputTanggal1" ng-model="input.Tanggal"/>
+                                    </div>
+                                    <div class="form-group">
+    
+                                            <label for="exampleInputHarga Barang1">
+                                                Harga Barang
+                                            </label>
+                                            <input type="text" class="form-control" id="exampleInputHarga Barang1" ng-model="input.Harga_Barang"/>
+                                        </div>
+                                        <div class="form-group">
+    
+                                            <label for="exampleInputBarang Masuk1">
+                                                Barang Masuk
+                                            </label>
+                                            <input type="text" class="form-control" id="exampleInputBarang Masuk1" ng-model="input.Barang_Masuk"/>
+                                        </div>
+                                        <div class="form-group">
+    
+                                            <label for="exampleInputKode Transaksi1">
+                                                Kode Transaksi
+                                            </label>
+                                            <input type="text" class="form-control" id="exampleInputKode Transaksi1" ng-model="input.Kode_Transaksi"/>
+                                        </div>
+                                        <div class="form-group">
+    
+                                            <label for="exampleInputIdBarang1">
+                                                IdBarang
+                                            </label>
+                                            <select class="form-control"
+                                            ng-options="item as item.IdBarang for item in DatasBarang track by item.IdBarang"
+                                            ng-model="SelectBarang"></select>
+                                        </div>
+                                      
+                                        <div class="form-group">
+    
+                                            <label for="exampleInputIdSuplier1">
+                                                IdSuplier
+                                            </label>
+                                            <select class="form-control"
+                                            ng-options="item as item.IdSuplier for item in DatasSuplier track by item.IdSuplier"
+                                            ng-model="SelectSuplier"></select>
+                                        </div>
+                            </div>
+                            <div class="modal-footer">
+    
+                                <button type="button" class="btn btn-primary" ng-click ="Simpan()">
+                                    Save </button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                    Close
+                                </button>
+                            </div>
+                        </div>
+    
+                    </div>
+    
+                </div>
+    
+            </div>
+        </div>
+    </div>

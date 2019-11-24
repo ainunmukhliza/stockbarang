@@ -1,30 +1,25 @@
 <?php
 
-class Barang_Model extends CI_Model{
-
-    public function get($id){
-        if($id != null){
-            $this->db->where('id_Barang', $id['id_Barang']);
-            $result = $this->db->get('periode');
-            return $result->result_array();
-        }
-        else {
-            $result = $this->db->get('Barang');
-            return $result->result_array();
-        }
+class barang_Model extends CI_Model
+{
+    public function Getbarang(){
+        $data = $this->db->get('barang');
+        return $data->result_object();
     }
-    public function insert($data){
-        $result = $this->db->insert('Barang', $data);
+    public function Insertbarang($post){
+        $result = $this->db->insert('barang',$post);
         return $result;
     }
-    public function update($data){
-        $this->db->where("id_barang", $data->id_Barang);
-        $result =  $this->db->update("barang", $data);
+    public function Updatebarang($data)
+    {
+        $this->db->where("IdBarang", $data->IdBarang);
+        $result = $this->db->update("barang", $data);
         return $result;
     }
-    public function delete($id){
-        $result = $this->db->where('id_barang', $id['id_Barang']);
-        $result = $this->db->delete('barang');
-        return $result;
+    public function Deletebarang($id){
+        $this->db->where("IdBarang", $id['IdBarang']);
+            $result =  $this->db->delete("barang");
+            return $result;
     }
-}
+}  
+       

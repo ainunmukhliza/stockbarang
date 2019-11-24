@@ -4,6 +4,11 @@
         .config(function ($stateProvider, $urlRouterProvider) {
             $urlRouterProvider.otherwise("Home");
             $stateProvider
+            .state('login', {
+                url : '/login',
+                templateUrl : 'login.html',
+                controller : 'LoginController'
+              })
                 .state('Home', {
                     url: "/Home",
                     templateUrl: "views/pages/Home.html",

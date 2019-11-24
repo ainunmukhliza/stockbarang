@@ -1,30 +1,25 @@
 <?php
 
-class Suplier_Model extends CI_Model{
-
-    public function get($id){
-        if($id != null){
-            $this->db->where('id_suplier', $id['id_Suplier']);
-            $result = $this->db->get('suplier');
-            return $result->result_array();
-        }
-        else {
-            $result = $this->db->get('suplier');
-            return $result->result_array();
-        }
+class suplier_Model extends CI_Model
+{
+    public function Getsuplier(){
+        $data = $this->db->get('suplier');
+        return $data->result_object();
     }
-    public function insert($data){
-        $result = $this->db->insert('suplier', $data);
+    public function Insertsuplier($post){
+        $result = $this->db->insert('suplier',$post);
         return $result;
     }
-    public function update($data){
-        $this->db->where("id_suplier", $data->id_Suplier);
-        $result =  $this->db->update("suplier", $data);
+    public function Updatesuplier($data)
+    {
+        $this->db->where("IdSuplier", $data->IdSuplier);
+        $result = $this->db->update("suplier", $data);
         return $result;
     }
-    public function delete($id){
-        $result = $this->db->where('id_suplier', $id['id_suplier']);
-        $result = $this->db->delete('suplier');
-        return $result;
+    public function Deletesuplier($id){
+        $this->db->where("IdSuplier", $id['IdSuplier']);
+            $result =  $this->db->delete("suplier");
+            return $result;
     }
-}
+}  
+       

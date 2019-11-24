@@ -57,16 +57,19 @@ $route['translate_uri_dashes'] = FALSE;
 $route['API'] = 'Rest_server';
 
 // User API Routes
+$route['barang']['get'] = 'api/barang/Getbarang';
+$route['barang']['post'] = 'api/barang/Insertbarang';
+$route['barang']['put'] = 'api/barang/Updatebarang';
+$route['barang']['delete'] = 'api/barang/Deletebarang';
 
-$route['barang']['get'] = 'api/Barang/getBarang';
-$route['barang']['post'] = 'api/Barang/insertBarang';
-$route['barang']['delete'] = 'api/Barang/deleteBarang';
-$route['barang']['put'] = 'api/Barang/updateBarang';
-$route['suplier']['get'] = 'api/Suplier/getSuplier';
-$route['suplier']['post'] = 'api/Suplier/insertSuplier';
-$route['suplier']['delete'] = 'api/Suplier/deleteSuplier';
-$route['suplier']['put'] = 'api/Suplier/updateSuplier';
-$route['transaksi']['get'] = 'api/Transaksi/getTransaksi';
-$route['transaksi']['post'] = 'api/Transaksi/insertTransaksi';
-$route['transaksi']['delete'] = 'api/Transaksi/deleteTransaksi';
-$route['transaksi']['put'] = 'api/Transaksi/updateTransaksi';
+$route['suplier']['get'] = 'api/suplier/Getsuplier';
+$route['suplier']['post'] = 'api/suplier/Insertsuplier';
+$route['suplier']['put'] = 'api/suplier/Updatesuplier';
+$route['suplier']['delete'] = 'api/suplier/Deletesuplier';
+
+$route['transaksi']['get'] = 'api/transaksi/Gettransaksi';
+$route['transaksi']['post'] = 'api/transaksi/Inserttransaksi';
+$route['transaksi']['put'] = 'api/transaksi/Updatetransaksi';
+$route['transaksi']['delete'] = 'api/transaksi/Deletetransaksi';
+
+$route['user']['get'] = 'user/Login';

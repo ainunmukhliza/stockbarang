@@ -1,82 +1,81 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
-
-require APPPATH . '/libraries/API_Controller.php';
-class Barang extends API_Controller
+require APPPATH.'/libraries/API_Controller.php';
+class barang extends API_Controller
 {
     public function __construct(){
         parent::__construct();
-        $this->load->model("Barang_model", "BarangModel");
+        $this->load->model("barang_model","barangModel");
     }
-
-    public function getBarang(){
-        $id = $_GET;
-        $result = $this->BarangModel->get($id);
-        if(!empty($result)){
+    public function Getbarang(){
+        $Output = $this->barangModel->Getbarang();
+        if($Output !=null || count($Output)>0){
             $this->api_return(
                 [
-                    "data" => $result
-                ], 200
-            );
+                    'status' => true,
+                    "result" => $Output
+                ],
+            200);
         }else{
             $this->api_return(
                 [
-                    "data" => "Data Kosong"
-                ], 400
-            );
+                    'status' => false,
+                ],
+            400);
         }
+     
     }
-
-    public function insertBarang(){
-        $pos = $this->input->raw_input_stream;
-        $data = $this->BarangModel->insert(json_decode($pos));
-        if($data){
+ Public function Insertbarang(){
+    $post = $this->input->raw_input_stream;
+    $Output = $this->barangModel->Insertbarang(json_decode($post));
+    if ($Output){ 
+        $this->api_return(
+            [
+                'status' => true,
+                "result" => $Output
+            ],
+            200);
+        }else{
             $this->api_return(
                 [
-                    'status' => true
+                    'status' => false,
                 ],
+            400);
+            }
+ }
+ public function Updatebarang()
+ {
+     $data = json_decode($this->input->raw_input_stream);
+     $result = $this->barangModel->Updatebarang($data);
+     if ($result){
+         $this->api_return(
+             [
+                 'status'=>true
+             ],
+         200);
+     }else{
+         $this->api_return(
+             [
+                 'status'=>false
+             ],
+         400);
+     }
+ }
+public function Deletebarang()
+{
+    $id = $_GET;
+    $result = $this->barangModel->Deletebarang($id);
+    if ($result){
+        $this->api_return(
+            [
+                'status'=>true
+            ],
         200);
-        }else{
-            $this->api_return(
-                [
-                    'status' => false
-                ],
+    }else{
+        $this->api_return(
+            [
+                'status'=>false
+            ],
         400);
-        }
     }
-
-    public function updateBarang(){
-        $put =json_decode($this->input->raw_input_stream);
-        $data = $this->BarangModel->update($put);
-        if($data){
-            $this->api_return(
-                [
-                    'status' => true
-                ],
-        200);
-        }else{
-            $this->api_return(
-                [
-                    'status' => false
-                ],
-        400);
-        }
-    }
-
-    public function deleteBarang(){
-        $id = $_GET;
-        $result = $this->BarangModel->delete($id);
-        if($result){
-            $this->api_return(
-                [
-                    "data" => $result
-                ], 200
-            );
-        }else{
-            $this->api_return(
-                [
-                    "data" => $result
-                ], 400
-            );
-        }
-    }
+}
 }
