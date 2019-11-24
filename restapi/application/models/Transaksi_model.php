@@ -8,12 +8,12 @@ class transaksi_Model extends CI_Model
             $result = $this->db->query("
             SELECT
             transaksi.*,
-            barang.IdBarang,
-            suplier.IdSuplier
+            barang.Nama,
+            suplier.Nama_Suplier
             FROM
              `transaksi`
-             INNER JOIN `barang` ON `transaksi`.`IdBarang` = `barang`.`IdBarang`
-             INNER JOIN `suplier` ON `transaksi`.`IdSuplier` = `suplier`.`IdSuplier`    
+             INNER JOIN `barang` ON `transaksi`.`Nama` = `barang`.`Nama`
+             INNER JOIN `suplier` ON `transaksi`.`Nama_Suplier` = `suplier`.`Nama_Suplier`    
             ");
            
             return $result->result_array();
@@ -22,12 +22,12 @@ class transaksi_Model extends CI_Model
             $result = $this->db->query("
             SELECT
             transaksi.*,
-            barang.IdBarang,
-            suplier.IdSuplier
+            barang.Nama,
+            suplier.Nama_Suplier
             FROM
              `transaksi`
-             INNER JOIN `barang` ON `transaksi`.`IdBarang` = `barang`.`IdBarang`
-             INNER JOIN `suplier` ON `transaksi`.`IdSuplier` = `suplier`.`IdSuplier`    
+             INNER JOIN `barang` ON `transaksi`.`Nama` = `barang`.`Nama`
+             INNER JOIN `suplier` ON `transaksi`.`Nama_Suplier` = `suplier`.`Nama_Suplier`    
             ");
             return $result->result_array();
         }

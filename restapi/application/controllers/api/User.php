@@ -1,12 +1,18 @@
 <?php
 
-class login extends CI_Model
+class User extends CI_Model
 {
-    public function cek_user($Username,$Password)
-    {
-       $this->db->where("email = '$Username' or username = '$Username'");
-       $this->db->where('password', md5($Password));
-       $query = $this->db->get('user');
-       return $query->row_array();
+    public function __construct(){
+        parent::__construct();
+        $this->load->model("User_model", "UserModel");
     }
-}
+
+    public function Login(){
+        $data = $_GET;
+        $result = $this->UserModel->login($data);
+        $this->api_return(
+            [
+                "data"=>$result
+            ], 200
+        );
+    }

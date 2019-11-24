@@ -18,8 +18,8 @@
                                 <td class="font-weight-bold text-white" align="center"><b>Harga Barang</b></td>
                                 <td class="font-weight-bold text-white" align="center"><b>Barang Masuk</b></td>
                                 <td class="font-weight-bold text-white" align="center"><b>Kode Transaksi</b></td>
-                                <td class="font-weight-bold text-white" align="center"><b>Id Barang</b></td>
-                                <td class="font-weight-bold text-white" align="center"><b>Id Suplier</b></td>
+                                <td class="font-weight-bold text-white" align="center"><b>Nama Barang</b></td>
+                                <td class="font-weight-bold text-white" align="center"><b>Nama Suplier</b></td>
                                 <td class="font-weight-bold text-white" align="center" colspan="3"><b>Action</b></td>
                             </tr>
                         </tdead>
@@ -31,8 +31,8 @@
                                 <td class="font-weight-bold text-white" align="center">{{item.Harga_Barang}}</td>
                                 <td class="font-weight-bold text-white" align="center">{{item.Barang_Masuk}}</td>
                                 <td class="font-weight-bold text-white" align="center">{{item.Kode_Transaksi}}</td>
-                                <td class="font-weight-bold text-white" align="center">{{item.IdBarang}}</td>
-                                <td class="font-weight-bold text-white" align="center">{{item.IdSuplier}}</td>
+                                <td class="font-weight-bold text-white" align="center">{{item.Nama}}</td>
+                                <td class="font-weight-bold text-white" align="center">{{item.Nama_Suplier}}</td>
                                 <td align="center"><button class="btn btn-success" id="modal-195230" data-target="#modal-container-195230" data-toggle="modal" ng-click="GetData(item)">Ubah</button></td>
                                 <td align="center"><button class="btn btn-danger"  ng-click ="Hapus(item)">Hapus</button></td>
                             </tr>
@@ -100,22 +100,22 @@
                                         </div>
                                         <div class="form-group">
     
-                                            <label for="exampleInputIdBarang1">
-                                                IdBarang
+                                            <label for="exampleInputNama Barang1">
+                                                Nama Barang
                                             </label>
                                             <select class="form-control"
-                                            ng-options="item as item.IdBarang for item in DatasBarang track by item.IdBarang"
-                                            ng-model="SelectBarang"></select>
+                                            ng-options="item as item.Nama for item in DatasBarang track by item.Nama"
+                                            ng-model="SelectedBarang"></select>
                                         </div>
                                       
                                         <div class="form-group">
     
-                                            <label for="exampleInputIdSuplier1">
-                                                IdSuplier
+                                            <label for="exampleInputNama Suplier1">
+                                                Nama Suplier
                                             </label>
                                             <select class="form-control"
-                                            ng-options="item as item.IdSuplier for item in DatasSuplier track by item.IdSuplier"
-                                            ng-model="SelectSuplier"></select>
+                                            ng-options="item as item.Nama_Suplier for item in DatasSuplier track by item.Nama_Suplier"
+                                            ng-model="SelectedSuplier"></select>
                                         </div>
                             </div>
                             <div class="modal-footer">

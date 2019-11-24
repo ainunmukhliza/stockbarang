@@ -7,6 +7,7 @@ class transaksi extends API_Controller
         $this->load->model("transaksi_model","transaksiModel");
     }
     public function Gettransaksi(){
+        $id=$_GET;
         $Output = $this->transaksiModel->Gettransaksi($id);
         if($Output !=null || count($Output)>0){
             $this->api_return(

@@ -4,11 +4,6 @@
         .config(function ($stateProvider, $urlRouterProvider) {
             $urlRouterProvider.otherwise("Home");
             $stateProvider
-            .state('login', {
-                url : '/login',
-                templateUrl : 'login.html',
-                controller : 'LoginController'
-              })
                 .state('Home', {
                     url: "/Home",
                     templateUrl: "views/pages/Home.html",
@@ -29,6 +24,16 @@
                     templateUrl: "views/pages/Transaksi.html",
                     controller: "TransaksiController"
                 });
+        })
+
+        .controller("view", function($scope, $window){
+            if($window.sessionStorage.getItem("username")==undefined || $window.sessionStorage.getItem("username")=="" || $window.sessionStorage.getItem("username")==null){
+                window.location.href="login.html";
+            }
+            $scope.Logout= function(){
+                sessionStorage.clear();
+                window.location.href="index.html";
+            }
         })
 
 })(window.angular);

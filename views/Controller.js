@@ -166,11 +166,28 @@
             }).then(function (response) {
                 $scope.DatasTransaksi = response.data.result
             })
-
+            $http({
+                method: "get",
+                url: "http://localhost/stockbarang/restapi/barang",
+                header: {
+                    "Content-Type": "application/json"
+                }
+            }).then(function (response) {
+                $scope.DatasBarang = response.data.result
+            })
+            $http({
+                method: "get",
+                url: "http://localhost/stockbarang/restapi/suplier",
+                header: {
+                    "Content-Type": "application/json"
+                }
+            }).then(function (response) {
+                $scope.DatasSuplier = response.data.result
+        })
             $scope.Simpan = function(){
                 if($scope.status=="Simpan"){
-            $scope.input.IdBarang = $scope.SelectBarang.IdBarang;
-           $scope.input.IdSuplier = $scope.SelectSuplier.IdSuplier;
+                    $scope.input.Nama = $scope.SelectedBarang.Nama;
+                    $scope.input.Nama_Suplier = $scope.SelectedSuplier.Nama_Suplier;
                     $http({
                         method: "POST",
                         url: "http://localhost/stockbarang/restapi/transaksi",
@@ -179,17 +196,17 @@
                             "Content-Type": "application/json"
                         }
                     }).then(function(response){
-                        $scope.input.IdBarang = $scope.SelectBarang.IdBarang;
-                        $scope.input.IdSuplier = $scope.SelectSuplier.IdSuplier;
+                        $scope.input.Nama = $scope.SelectedBarang.Nama;
+                        $scope.input.Nama_Suplier = $scope.SelectedSuplier.Nama_Suplier;
                         $scope.DatasTransaksi.push(angular.copy($scope.input));
                         alert("Berhasil di Simpan")
                     }, function(error){
                         alert(error.data.result);
                     })
                 }else{
-                    $scope.input.IdBarang = $scope.SelectBarang.IdBarang;
-                  $scope.input.IdSuplier = $scope.SelectSuplier.IdSuplier;
-                    $http({
+                    $scope.input.Nama = $scope.SelectedBarang.Nama;
+                    $scope.input.Nama_Suplier = $scope.SelectedSuplier.Nama_Suplier;
+                     $http({
                         method: "PUT",
                         url: "http://localhost/stockbarang/restapi/transaksi",
                         data: $scope.input,
@@ -197,8 +214,8 @@
                             "Content-Type": "application/json"
                         }
                     }).then(function(response){
-                        $scope.input.IdBarang = $scope.SelectBarang.IdBarang;
-                       $scope.input.IdSuplier = $scope.SelectSuplier.IdSuplier;
+                        $scope.input.Nama = $scope.SelectedBarang.Nama;
+                       $scope.input.Nama_Suplier = $scope.SelectedSuplier.Nama_Suplier;
                         alert("Berhasil di Diubah")
                     }, function(error){
                         alert("Gagal Update");
@@ -223,34 +240,35 @@
                 $scope.input = item;
                 $scope.status = "Update";
                 angular.forEach($scope.DatasTransaksi, function (value, key) {
-                    if (value.IdBarang == item.IdBarang,
-                        value.IdSuplier ==item.IdSuplier){
-                        $scope.SelectBarang = value;
-                        $scope.SelectSuplier = value; 
+                    if (value.Nama == item.Nama,
+                        value.Nama_Suplier ==item.Nama_Suplier){
+                        $scope.SelectedBarang = value;
+                        $scope.SelectedSuplier = value; 
                     }
                 })
             }
             $scope.GetSimpan = function(item){
                 $scope.status="Simpan";
             }
-
-        
         })
 
-        //login
-        app.controller('LoginController', function($scope, $rootScope, $stateParams, $state, LoginService) {
-            $rootScope.title = "Cara Membuat Login Sistem Menggunakan AngularJS";
-            
-            $scope.formSubmit = function() {
-              if(LoginService.login($scope.username, $scope.password)) {
-                $scope.error = '';
-                $scope.username = '';
-                $scope.password = '';
-                $state.transitionTo('home');
-              } else {
-                $scope.error = "username dan password yang anda masukan salah !";
-              }   
-            };
-            
-          });
+//Login
+        .controller("UserController", function ($scope, $http) {
+            $scope.input={};
+            $scope.Login= function(){
+                var Url = "http://localhost/stockbarang/restapi/User?username="+$scope.input.username+"&password="+$scope.input.password;
+                $http({
+                    method: "get",
+                    url: Url
+                }).then(function(response){
+                    alert("Sukses Login");
+                }, function(error){
+                    console.log(error);
+                })
+            }
+})
+
+
+
+
 })(window.angular);

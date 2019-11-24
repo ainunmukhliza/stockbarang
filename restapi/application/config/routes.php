@@ -72,4 +72,4 @@ $route['transaksi']['post'] = 'api/transaksi/Inserttransaksi';
 $route['transaksi']['put'] = 'api/transaksi/Updatetransaksi';
 $route['transaksi']['delete'] = 'api/transaksi/Deletetransaksi';
 
-$route['user']['get'] = 'user/Login';
+$route['User']['get'] = 'api/User/Login';
