@@ -1,93 +1,97 @@
 <div class="row">
-    <div class="col-md-12">
-        <div class="content-panel">
-            <h4><div class="font-weight-bold text-white" align="center"></i> Daftar Suplier</h4>
-            <hr> 
-                <form method="Post" action="cari.php">
-                    <table align="right">
-                    <td ><input type="text" name="name"></td>
-                    <td><input type="submit" value="Cari"></td>
-                </table></form>
-            <div class="panel-body">
-                    <td><button class="btn btn-info" id="modal-195230" data-target="#modal-container-195230"
-                        data-toggle="modal" ng-click="GetSimpan()">Tambah</button></td>
-
-                <div class="table-responsive">
-                    <table class="table table-striped table-bordered table-hover">
-                        <tdead>
-                            <tr>
-                                <td class="font-weight-bold text-white" align="center"><b>No</b></td>
-                                <td class="font-weight-bold text-white" align="center"><b>ID Suplier</td>
-                                <td class="font-weight-bold text-white" align="center"><b>Nama Suplier</td>
-                                <td class="font-weight-bold text-white" align="center" colspan="3"><b>Action</b></td>
-                            </tr>
-                        </tdead>
-                        <tbody>
-                            <tr ng-repeat="item in DatasSuplier">
-                                <td class="font-weight-bold text-white" align="center">{{$index+1}}</td>
-                                <td class="font-weight-bold text-white" align="center">{{item.IdSuplier}}</td>
-                                <td class="font-weight-bold text-white" align="center">{{item.Nama_Suplier}}</td>
-                                <td align="center"><button class="btn btn-success" id="modal-195230" data-target="#modal-container-195230" data-toggle="modal" ng-click="GetData(item)">Ubah</button></td>
-                                <td align="center"><button class="btn btn-danger"  ng-click ="Hapus(item)">Hapus</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </tr></tbody></table><div class="row-fluid"><div class="span6"><div class="dataTables_info" id="hidden-table-info_info">SB</div></div><div class="span6"><div class="dataTables_paginate paging_bootstrap pagination"><ul><li class="prev disabled"><a href="#">← Previous</a></li><li class="active"><a href="#">1</a></li><li><a href="#">2</a></li><li><a href="#">3</a></li><li><a href="#">4</a></li><li><a href="#">5</a></li><li class="next"><a href="#">Next → </a></li></ul></div></div></div></div>
-        </div>
-        <!-- End  Kitchen Sink -->
-    </div>
-</div>
-<div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
+        <div class="col-md-12">
+                <div class="panel panel-default">
+                        <div class="panel-heading">
+                <h4><div class="font-weight-bold text-white" align="center"></i> Daftar Suplier</h4>
+                <hr> 
+                <span class="pull-right">
+                        <form action="" method="POST">
+                          <input type="text" name="keyword" size="20" autofocus="" placeholder=""
+                           autocomplete="off">
+                       <button type="submit" name="search">Search</button>
+                       </form>
+                       </span>                
+                <div class="panel-body">
+                        <td><button class="btn btn-success fileinput-button"  id="modal-195230" data-target="#modal-container-195230"
+                            data-toggle="modal" ng-click="GetSimpan()"><i class="glyphicon glyphicon-plus"></i>Tambah</i></button></td>
     
-    
-                <div class="modal fade" id="modal-container-195230" role="dialog" aria-labelledby="myModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="myModalLabel">
-                                    Data Suplier
-                                </h5>
-                                <button type="button" class="close" data-dismiss="modal">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form role="form">
-                                    <div class="form-group">
-    
-                                        <label for="exampleInputID Suplier1">
-                                            ID Suplier
-                                        </label>
-                                        <input type="text" class="form-control" id="exampleInputID Suplier1" ng-model="input.IdSuplier"/>
-                                    </div>
-                                    <div class="form-group">
-    
-                                        <label for="exampleInputNama Suplier1">
-                                            Nama Suplier
-                                        </label>
-                                        <input type="text" class="form-control" id="exampleInputNama Suplier1" ng-model="input.Nama_Suplier"/>
-                                    </div>
-                                   
-                            </div>
-                            <div class="modal-footer">
-    
-                                <button type="button" class="btn btn-primary" ng-click ="Simpan()">
-                                    Save </button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                    Close
-                                </button>
-                            </div>
-                        </div>
-    
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover">
+                            <tdead>
+                                
+                                <tr>
+                                    
+                                    <th bgcolor="aqua"><center>No</td>
+                                    <th bgcolor="aqua"><center>ID Suplier</td>
+                                    <th bgcolor="aqua"><center>Nama Suplier</td>
+                                    <th bgcolor="aquamarine" colspan="3"><center>Action</center></th>
+                                </tr>
+                            </tdead>
+                            <tbody>
+                                <tr ng-repeat="item in DatasSuplier">
+                                    <td class="font-weight-bold text-white" align="center">{{$index+1}}</td>
+                                    <td class="font-weight-bold text-white" align="center">{{item.IdSuplier}}</td>
+                                    <td class="font-weight-bold text-white" align="center">{{item.Nama_Suplier}}</td>
+                                    <td align="center"><button class="btn btn-primary btn-xs"><i class=" fa fa-edit" id="modal-195230" data-target="#modal-container-195230" data-toggle="modal" ng-click="GetData(item)"></i></button></td>
+                                    <td align="center"><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "  ng-click ="Hapus(item)"></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-    
                 </div>
-    
             </div>
+            <!-- End  Kitchen Sink -->
         </div>
     </div>
+    <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+        
+        
+                    <div class="modal fade" id="modal-container-195230" role="dialog" aria-labelledby="myModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="myModalLabel">
+                                        Data Suplier
+                                    </h5>
+                                    <button type="button" class="close" data-dismiss="modal">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form role="form">
+                                        <div class="form-group">
+        
+                                            <label for="exampleInputID Suplier1">
+                                                ID Suplier
+                                            </label>
+                                            <input type="text" class="form-control" id="exampleInputID Suplier1" ng-model="input.IdSuplier"/>
+                                        </div>
+                                        <div class="form-group">
+        
+                                            <label for="exampleInputNama Suplier1">
+                                                    Nama Suplier
+                                            </label>
+                                            <input type="text" class="form-control" id="exampleInputNama Suplier1" ng-model="input.Nama_Suplier"/>
+                                        </div>
+                                        
+                                    </div>
+                                <div class="modal-footer">
+        
+                                    <button type="button" class="btn btn-success" ng-click ="Simpan()">
+                                        Save </button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+        
+                        </div>
+        
+                    </div>
+        
+                </div>
+            </div>
+        </div>

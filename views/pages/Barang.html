@@ -1,38 +1,47 @@
 <div class="row">
     <div class="col-md-12">
-        <div class="content-panel">
+            <div class="panel panel-default">
+                    <div class="panel-heading">
             <h4><div class="font-weight-bold text-white" align="center"></i> Daftar Barang</h4>
-            <hr>               
+            <hr>  
+            <span class="pull-right">
+                    <form action="" method="POST">
+                      <input type="text" name="keyword" size="20" autofocus="" placeholder=""
+                       autocomplete="off">
+                   <button type="submit" name="search">Search</button>
+                   </form>
+                   </span>               
             <div class="panel-body">
-                    <td><button class="btn btn-info" id="modal-195230" data-target="#modal-container-195230"
-                        data-toggle="modal" ng-click="GetSimpan()">Tambah</button></td>
-                               
-
-                <div class="table-responsive">
+                    <td><button class="btn btn-success fileinput-button"  id="modal-195230" data-target="#modal-container-195230"
+                        data-toggle="modal" ng-click="GetSimpan()"><i class="glyphicon glyphicon-plus"></i>Tambah</i></button></td>
+                        
+                 <div class="table-responsive">
                     <table class="table table-striped table-bordered table-hover">
                         <tdead>
+                            
                             <tr>
-                                <td class="font-weight-bold text-white" align="center"><b>No</b></td>
-                                <td class="font-weight-bold text-white" align="center"><b>ID Barang</td>
-                                <td class="font-weight-bold text-white" align="center"><b>Kode</td>
-                                <td class="font-weight-bold text-white" align="center"><b>Nama</b></td>
-                                <td class="font-weight-bold text-white" align="center"><b>Merk</b></td>
-                                <td class="font-weight-bold text-white" align="center"><b>Type</b></td>
-                                <td class="font-weight-bold text-white" align="center"><b>Ukuran</b></td>
-                                <td class="font-weight-bold text-white" align="center" colspan="3"><b>Action</b></td>
+                                
+                                <th bgcolor="aqua"><center>No</td>
+                                <th bgcolor="aqua"><center>Nama Barang</td>
+                                <th bgcolor="aqua"><center>Kode</td>
+                                <th bgcolor="aqua"><center>Merk Barang</td>
+                                <th bgcolor="aqua"><center>Type</td>
+                                <th bgcolor="aqua"><center>Satuan Barang</center></th>
+                                <th bgcolor="aqua"><center>Harga Barang</center></th>    
+                                <th bgcolor="aquamarine" colspan="3"><center>Action</center></th>
                             </tr>
                         </tdead>
                         <tbody>
                             <tr ng-repeat="item in DatasBarang">
                                 <td class="font-weight-bold text-white" align="center">{{$index+1}}</td>
-                                <td class="font-weight-bold text-white" align="center">{{item.IdBarang}}</td>
-                                <td class="font-weight-bold text-white" align="center">{{item.Kode}}</td>
                                 <td class="font-weight-bold text-white" align="center">{{item.Nama}}</td>
+                                <td class="font-weight-bold text-white" align="center">{{item.Kode}}</td>
                                 <td class="font-weight-bold text-white" align="center">{{item.Merk}}</td>
                                 <td class="font-weight-bold text-white" align="center">{{item.Type}}</td>
-                                <td class="font-weight-bold text-white" align="center">{{item.Ukuran}}</td>
-                                <td align="center"><button class="btn btn-success" id="modal-195230" data-target="#modal-container-195230" data-toggle="modal" ng-click="GetData(item)">Ubah</button></td>
-                                <td align="center"><button class="btn btn-danger"  ng-click ="Hapus(item)">Hapus</button></td>
+                                <td class="font-weight-bold text-white" align="center">{{item.Satuan}}</td>    
+                                <td class="font-weight-bold text-white" align="center">{{item.Harga}}</td>  
+                                <td align="center"><button class="btn btn-primary btn-xs"><i class=" fa fa-edit" id="modal-195230" data-target="#modal-container-195230" data-toggle="modal" ng-click="GetData(item)"></i></button></td>
+                                <td align="center"><button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "  ng-click ="Hapus(item)"></button></td>
                             </tr>
                         </tbody>
                     </table>
@@ -63,10 +72,10 @@
                                 <form role="form">
                                     <div class="form-group">
     
-                                        <label for="exampleInputID Barang1">
-                                            ID Barang
+                                        <label for="exampleInputNama1">
+                                            Nama
                                         </label>
-                                        <input type="text" class="form-control" id="exampleInputID Barang1" ng-model="input.IdBarang"/>
+                                        <input type="text" class="form-control" id="exampleInputNama1" ng-model="input.Nama"/>
                                     </div>
                                     <div class="form-group">
     
@@ -77,36 +86,36 @@
                                     </div>
                                     <div class="form-group">
     
-                                            <label for="exampleInputNama1">
-                                                Nama
-                                            </label>
-                                            <input type="text" class="form-control" id="exampleInputNama1" ng-model="input.Nama"/>
-                                        </div>
-                                        <div class="form-group">
+                                        <label for="exampleInputMerk1">
+                                            Merk
+                                        </label>
+                                        <input type="text" class="form-control" id="exampleInputMerk1" ng-model="input.Merk"/>
+                                    </div>
+                                    <div class="form-group">
     
-                                            <label for="exampleInputMerk1">
-                                                Merk
-                                            </label>
-                                            <input type="text" class="form-control" id="exampleInputMerk1" ng-model="input.Merk"/>
-                                        </div>
-                                        <div class="form-group">
+                                        <label for="exampleInputType1">
+                                            Type
+                                        </label>
+                                        <input type="text" class="form-control" id="exampleInputType1" ng-model="input.Type"/>
+                                    </div>
+                                    <div class="form-group">
     
-                                            <label for="exampleInputType1">
-                                                Type
-                                            </label>
-                                            <input type="text" class="form-control" id="exampleInputType1" ng-model="input.Type"/>
-                                        </div>
-                                        <div class="form-group">
+                                        <label for="exampleInputSatuan1">
+                                            Satuan
+                                        </label>
+                                        <input type="text" class="form-control" id="exampleInputSatuan1" ng-model="input.Satuan"/>
+                                    </div>
+                                    <div class="form-group">
     
-                                            <label for="exampleInputUkuran1">
-                                                Ukuran
-                                            </label>
-                                            <input type="text" class="form-control" id="exampleInputUkuran1" ng-model="input.Ukuran"/>
-                                        </div>
+                                        <label for="exampleInputHarga1">
+                                            Harga Barang
+                                        </label>
+                                        <input type="text" class="form-control" id="exampleInputHarga1" ng-model="input.Harga"/>
+                                    </div>
                                 </div>
                             <div class="modal-footer">
     
-                                <button type="button" class="btn btn-primary" ng-click ="Simpan()">
+                                <button type="button" class="btn btn-success" ng-click ="Simpan()">
                                     Save </button>
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">
                                     Close
@@ -121,3 +130,4 @@
             </div>
         </div>
     </div>
+    

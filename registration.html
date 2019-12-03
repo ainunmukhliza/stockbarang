@@ -10,8 +10,8 @@
   <title>PersediaanBarang</title>
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="image/git.gif" rel="icon">
+  <link href="image/2222.jpg" rel="apple-touch-icon">
 
   <!-- Bootstrap core CSS -->
   <link href="assets/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -66,21 +66,23 @@
     <!--main content start-->
       <div id="login-page">
     <div class="container">
-      <form class="form-login" action="index.html">
+      <form class="form-login" action="connect.php" method="POST">
         <h2 class="form-login-heading">Create an Account!</h2>
         <div class="login-wrap">
-            <input type="text" class="form-control form-control-user" id="exampleFirstName"
+            <input type="text" class="form-control" id="firstName" name="fristName"
             placeholder="First Name">
-            <input type="text" class="form-control form-control-user" id="exampleLastName"
+            <br>
+            <input type="text" class="form-control" id="lastName" name="fristName"
              placeholder="Last Name">
-             <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+             <br>
+             <input type="email" class="form-control" id="email" name="fristName"
              placeholder="Email Address">
-             <input type="password" class="form-control form-control-user" id="exampleInputPassword"
+             <br>
+             <input type="password" class="form-control" id="password" name="fristName"
              placeholder="Password">
-             <input type="password" class="form-control form-control-user" id="exampleRepeatPassword"
-             placeholder="Repeat Password">
+             <br>
             
-          <button class="btn btn-theme btn-block" href="index.html" type="submit"><i class="fa fa-lock"></i> Register Account</button>
+          <button class="btn btn-theme btn-block" type="submit"><i class="fa fa-lock"></i> Register Account</button>
           <div class="login-social-link centered">
               <p>or you can sign in via your social network</p>
               <button class="btn btn-facebook" type="submit"><i class="fa fa-facebook"></i> Facebook</button>
@@ -104,7 +106,7 @@
                 </div>
                 <div class="modal-body">
                     <p class="centered">
-                <img class="img-circle" width="80" src="image/obil.JPG">
+                <img class="img-circle" width="80" src="assets/img/2.jpg">
               </p>
                   <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
                 </div>

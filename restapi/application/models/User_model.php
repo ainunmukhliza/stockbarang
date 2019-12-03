@@ -1,7 +1,8 @@
 <?php
-class User_model extends CI_Model{
 
-public function Login($data)
+class User_model extends CI_Model
+{
+    public function login($data)
     {
         $Password = $data['password'];
         $Username = $data['username'];

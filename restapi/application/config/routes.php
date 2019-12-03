@@ -67,9 +67,19 @@ $route['suplier']['post'] = 'api/suplier/Insertsuplier';
 $route['suplier']['put'] = 'api/suplier/Updatesuplier';
 $route['suplier']['delete'] = 'api/suplier/Deletesuplier';
 
-$route['transaksi']['get'] = 'api/transaksi/Gettransaksi';
-$route['transaksi']['post'] = 'api/transaksi/Inserttransaksi';
-$route['transaksi']['put'] = 'api/transaksi/Updatetransaksi';
-$route['transaksi']['delete'] = 'api/transaksi/Deletetransaksi';
+$route['pembelian']['get'] = 'api/pembelian/Getpembelian';
+$route['pembelian']['post'] = 'api/pembelian/Insertpembelian';
+$route['pembelian']['put'] = 'api/pembelian/Updatepembelian';
+$route['pembelian']['delete'] = 'api/pembelian/Deletepembelian';
+
+$route['penjualan']['get'] = 'api/penjualan/Getpenjualan';
+$route['penjualan']['post'] = 'api/penjualan/Insertpenjualan';
+$route['penjualan']['put'] = 'api/penjualan/Updatepenjualan';
+$route['penjualan']['delete'] = 'api/penjualan/Deletepenjualan';
+
+$route['laporan']['get'] = 'api/laporan/Getlaporan';
+$route['laporan']['post'] = 'api/laporan/Insertlaporan';
+$route['laporan']['put'] = 'api/laporan/Updatelaporan';
+$route['laporan']['delete'] = 'api/laporan/Deletelaporan';
 
 $route['User']['get'] = 'api/User/Login';

@@ -1,14 +1,14 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 require APPPATH.'/libraries/API_Controller.php';
-class transaksi extends API_Controller
+class laporan extends API_Controller
 {
     public function __construct(){
         parent::__construct();
-        $this->load->model("transaksi_model","transaksiModel");
+        $this->load->model("laporan_model","laporanModel");
     }
-    public function Gettransaksi(){
+    public function Getlaporan(){
         $id=$_GET;
-        $Output = $this->transaksiModel->Gettransaksi($id);
+        $Output = $this->laporanModel->Getlaporan($id);
         if($Output !=null || count($Output)>0){
             $this->api_return(
                 [
@@ -25,9 +25,9 @@ class transaksi extends API_Controller
         }
      
     }
- Public function Inserttransaksi(){
+ Public function Insertlaporan(){
     $post = $this->input->raw_input_stream;
-    $Output = $this->transaksiModel->Inserttransaksi(json_decode($post));
+    $Output = $this->laporanModel->Insertlaporan(json_decode($post));
     if ($Output){ 
         $this->api_return(
             [
@@ -43,10 +43,10 @@ class transaksi extends API_Controller
             400);
             }
  }
- public function Updatetransaksi()
+ public function Updatelaporan()
  {
      $data = json_decode($this->input->raw_input_stream);
-     $result = $this->transaksiModel->Updatetransaksi($data);
+     $result = $this->laporanModel->Updatelaporan($data);
      if ($result){
          $this->api_return(
              [
@@ -61,10 +61,10 @@ class transaksi extends API_Controller
          400);
      }
  }
-public function Deletetransaksi()
+public function Deletelaporan()
 {
     $id = $_GET;
-    $result = $this->transaksiModel->Deletetransaksi($id);
+    $result = $this->laporanModel->Deletelaporan($id);
     if ($result){
         $this->api_return(
             [
